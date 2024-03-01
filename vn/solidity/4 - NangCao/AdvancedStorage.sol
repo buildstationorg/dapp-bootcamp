@@ -3,33 +3,65 @@
 pragma solidity ^0.8.20;
 
 contract AdvancedStorage {
+    // Khai báo địa chỉ của 1 quản lý két
+    address public vaultManager;
 
-    string public maintainerName = "zxstim";
-    uint8 public version = 1;
-    address public donationAddress = 0xe3d25540BA6CED36a0ED5ce899b99B5963f43d3F;
+    // Đây là khai báo lỗi không được truy cập
+    error OwnableUnauthorizedAccount(address account);
 
-    struct Person {
-        string name;
-        uint8 age;
-        bool overEighteen;
-        address uuid;
-        uint256 assetValue;
-        int256 debtValue;
+    // Constructor là function sẽ chạy ngay khi contract được khởi tạo
+    constructor() {
+        // Gán địa chỉ của deployer vào biến quản lý két
+        vaultManager = msg.sender;
     }
 
-    Person[] private listOfPeople;
+    // Khai báo định dạng dữ liệu InvestmentVault
+    struct InvestmentVault {
+        uint256 investmentDuration; // Thời gian đầu tư
+        int256 returnOnInvestment; // % lãi suất trả về
+        bool initialized; // Đã khởi tạo
+        address identityCard; // Địa chỉ thẻ thông tin
+    }
+    // Khai báo 1 biến có định dạng InvestmentVault
+    InvestmentVault private investmentVault;
 
-    mapping(address => Person) uuidToPerson;
+    // Function khởi tạo InvestmentVault
+    function setInitialInvestmentVault(uint256 daysAfter, int256 _returnOnInvestment, address _vaultOwner) public {
+        // Chúng ta kiểm tra người khởi tạo có phải là vaultManager
+        if (msg.sender != vaultManager) {
+            // Keyword revert sẽ huỷ toàn bộ các action đã thực hiện và revert/quay ngược lại giao dịch
+            revert OwnableUnauthorizedAccount(msg.sender);
+        }
+        // Khai báo thời gian đầu tư
+        uint256 _investmentDuration = block.timestamp + daysAfter * 1 days;
 
-    function storePerson(string memory _name, uint8 _age, bool _overEighteen, uint256 _assetValue, int256 _debtValue) public {
-        _assetValue *= 1e18;
-        _debtValue *= 1e18;
-        listOfPeople.push(Person({name: _name, age: _age, overEighteen: _overEighteen, uuid: msg.sender, assetValue: _assetValue, debtValue: _debtValue}));
-        uuidToPerson[msg.sender] = Person({name: _name, age: _age, overEighteen: _overEighteen, uuid: msg.sender, assetValue: _assetValue, debtValue: _debtValue});
+        // Tạo ra 1 identity card mới cho khách hàng
+        CustomerIdentityCard customerIdentityCard = new CustomerIdentityCard(_vaultOwner);
+        // Gán địa chỉ ví của chủ vault/khách hàng vào mapping với thông tin của vault
+        investmentVault = InvestmentVault({investmentDuration: _investmentDuration, returnOnInvestment: _returnOnInvestment, initialized: true, identityCard: address(customerIdentityCard)});
     }
 
-    function retrievePerson(address _address) public view returns (Person memory person) {
-        return uuidToPerson[_address];
+    // Hàm thay đổi lãi suất
+    function editReturnOnInvestment(int256 _newReturnOnInvestment) public {
+        // keyword require hoạt động tương tự như if và revert ở trên
+        require (msg.sender == vaultManager, "Unauthorized Manager");
+        // Thay đổi giá trị lãi suất
+        investmentVault.returnOnInvestment = _newReturnOnInvestment;
+    }
+
+    // Hàm trả về thông tin investmentVault
+    function retrieveInvestmentVault() public view returns (InvestmentVault memory _investmentVault) {
+        return investmentVault;
     }
 }
 
+// Contract khai báo địa chỉ của chủ vault
+contract CustomerIdentityCard {
+    // khai báo 1 địa chỉ customer
+    address public customer;
+
+    // khởi tạo contract và cho vào địa chỉ của customer
+    constructor(address _customer) {
+        customer = _customer;
+    }
+}
