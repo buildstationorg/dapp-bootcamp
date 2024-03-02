@@ -53,6 +53,11 @@ contract AdvancedStorage {
     function retrieveInvestmentVault() public view returns (InvestmentVault memory _investmentVault) {
         return investmentVault;
     }
+
+    // Hàm trả về address của IdentityCard
+    function retrieveCustomerInformation() public view returns (address) {
+        return CustomerIdentityCard(investmentVault.identityCard).customer();
+    }
 }
 
 // Contract khai báo địa chỉ của chủ vault
@@ -65,3 +70,4 @@ contract CustomerIdentityCard {
         customer = _customer;
     }
 }
+
