@@ -14,3 +14,5 @@ DApp Bootcamp is sponsored by [Road to Devcon](https://blog.ethereum.org/2023/06
 ## Internationalization
 1. [Vietnamese](/vn/README.md)
 
+## Content
+DApp Bootcamp content is inspired by [Patrick Collins free course on Youtube](https://www.youtube.com/@PatrickAlphaC), along with examples from [Solidity by Example](https://solidity-by-example.org/) and [SolidityLang](https://soliditylang.org/). Content will be updated regularly.
