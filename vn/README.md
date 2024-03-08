@@ -15,5 +15,4 @@
 DApp Bootcamp này được tài trợ bởi ban tổ chức [Road to Devcon](https://blog.ethereum.org/2023/06/29/road-to-devcon7-grants).
 
 ## Nội dung
-DApp Bootcamp content is inspired by [Patrick Collins free course on Youtube](https://www.youtube.com/@PatrickAlphaC), along with examples from [Solidity by Example](https://solidity-by-example.org/). Content will be updated regularly.
 Nội dung DApp Bootcamp được phát triển dựa trên [Khoá học miễn phí của Patrick Collins trên Youtube](https://www.youtube.com/@PatrickAlphaC), cùng với ví dụ từ [Solidity by Example](https://solidity-by-example.org/) và [SolidityLang](https://soliditylang.org/). Nội dung sẽ được cập nhật thường xuyên.
