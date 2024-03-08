@@ -1,0 +1,3 @@
+[submodule "vn/solidity/5 - Contracts/fund-me/lib/forge-std"]
+	path = vn/solidity/5 - Contracts/fund-me/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
