@@ -2,12 +2,12 @@
         
 pragma solidity >=0.4.22 <0.9.0;
 
-// Đây là "import" tự động được chèn bởi Remix
+// This import is automatically injected by Remix
 import "remix_tests.sol"; 
 
-// Cần import này để sử dụng ngữ cảnh giao dịch tùy chỉnh
-// Có thể sẽ không compile được trong "Solidity Compiler" plugin
-// nhưng sẽ hoạt động bình thường trong "Solidity Unit Testing" plugin
+// This import is required to use custom transaction context
+// Although it may fail compilation in 'Solidity Compiler' plugin
+// But it will work fine in 'Solidity Unit Testing' plugin
 import "remix_accounts.sol";
 import "../SimpleStorage.sol";
 
