@@ -26,13 +26,14 @@ contract SimpleStorage {
     mapping(address => Person) uuidToPerson; // syntax này có nghĩa là tạo một mapping từ address sang Person tên là uuidToPerson
 
     // function lưu thông tin của 1 person mới với các thông tin như name, age, overEighteen, assetValue, debtValue
-    function storePerson(string memory _name, uint8 _age, bool _overEighteen, uint256 _assetValue, int256 _debtValue) public {
+    function storePerson(string memory _name, uint8 _age, bool _overEighteen, uint256 _assetValue, int256 _debtValue) public returns (Person memory person) {
         _assetValue *= 1e18; // Chuyển đổi giá trị tài sản sang đơn vị wei
         _debtValue *= 1e18; // Chuyển đổi giá trị nợ sang đơn vị wei
         // Thêm thông tin của person mới vào danh sách listOfPeople
         listOfPeople.push(Person({name: _name, age: _age, overEighteen: _overEighteen, uuid: msg.sender, assetValue: _assetValue, debtValue: _debtValue}));
         // Thêm thông tin của person mới vào mapping uuidToPerson
         uuidToPerson[msg.sender] = Person({name: _name, age: _age, overEighteen: _overEighteen, uuid: msg.sender, assetValue: _assetValue, debtValue: _debtValue});
+        return Person({name: _name, age: _age, overEighteen: _overEighteen, uuid: msg.sender, assetValue: _assetValue, debtValue: _debtValue});
     }
 
     // function lấy thông tin của 1 person dựa trên địa chỉ
@@ -40,4 +41,3 @@ contract SimpleStorage {
         return uuidToPerson[_address];
     }
 }
-
