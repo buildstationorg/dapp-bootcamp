@@ -1,9 +1,0 @@
-[submodule "vn/solidity/5 - Contracts/fund-me/lib/forge-std"]
-	path = vn/solidity/5 - Contracts/fund-me/lib/forge-std
-	url = https://github.com/foundry-rs/forge-std
-[submodule "vn/solidity/5 - Contracts/fund-me/lib/chainlink-brownie-contracts"]
-	path = vn/solidity/5 - Contracts/fund-me/lib/chainlink-brownie-contracts
-	url = https://github.com/smartcontractkit/chainlink-brownie-contracts
-[submodule "vn/solidity/5 - Contracts/vn/solidity/5 - Contracts/foundry-fund-me-f23"]
-	path = vn/solidity/5 - Contracts/vn/solidity/5 - Contracts/foundry-fund-me-f23
-	url = https://github.com/Cyfrin/foundry-fund-me-f23
