@@ -11,8 +11,8 @@ import {
   ledgerWallet,
 } from '@rainbow-me/rainbowkit/wallets';
 import {
-  klaytn,
-  klaytnBaobab,
+  mainnet,
+  sepolia,
 } from 'wagmi/chains';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { WagmiProvider, http } from 'wagmi';
@@ -30,12 +30,12 @@ const config = getDefaultConfig({
     },
   ],
   chains: [
-    klaytn,
-    klaytnBaobab
+    mainnet,
+    sepolia
   ],
   transports: {
-    [klaytn.id]: http('https://rpc.ankr.com/klaytn'),
-    [klaytnBaobab.id]: http('https://rpc.ankr.com/klaytn_testnet'),
+    [mainnet.id]: http('https://rpc.ankr.com/eth'),
+    [sepolia.id]: http('https://rpc.ankr.com/eth_sepolia'),
   },
   ssr: true,
 });

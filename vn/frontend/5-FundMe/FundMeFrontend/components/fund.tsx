@@ -91,7 +91,7 @@ export default function FundCard() {
                 <FormItem>
                   <FormLabel>Amount</FormLabel>
                   <FormControl>
-                    <Input type="number" placeholder="Enter an amount in KLAY" {...field} value={field.value ?? ''} />
+                    <Input type="number" placeholder="Enter an amount in ETH" {...field} value={field.value ?? ''} />
                   </FormControl>
                   <FormDescription>
                     You will fund the contract with this amount. Minimum amount is {MINIMUM_USD ? MINIMUM_USD : "..."} USD.
@@ -120,7 +120,7 @@ export default function FundCard() {
         {hash ? 
           <div className="flex flex-row gap-2">
             Hash: 
-            <a target="_blank" className="text-blue-500 underline" href={`https://baobab.klaytnfinder.io/tx/${hash}`}>{truncateAddress(hash)}</a>
+            <a target="_blank" className="text-blue-500 underline" href={`https://sepolia.etherscan.io/tx/${hash}`}>{truncateAddress(hash)}</a>
           </div>
           :
           <>
