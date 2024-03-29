@@ -7,7 +7,7 @@ import { RefreshCcw } from "lucide-react"
 
 
 export default function FundMeBalanceCard() {
-  const contractAddress = "0x1dB58359534600b08Fe7061608920f1C47E7b0b0";
+  const contractAddress = "0x85bb6d27571C3175c81fe212c0decCA2202147b9";
   const {data: result, isPending, refetch} = useBalance({
     address: contractAddress,
   });
@@ -22,7 +22,7 @@ export default function FundMeBalanceCard() {
         </Button>
       </div>
       <p className="italic text-sm">Current balance in the Fund Me contract</p>
-      {isPending ? <Skeleton className="w-[50px] h-[20px]" /> : <p className="text-xl font-mono flex flex-row items-center">{balance} KLAY</p>}
+      {isPending ? <Skeleton className="w-[50px] h-[20px]" /> : <p className="text-xl font-mono flex flex-row items-center">{balance} Ξ</p>}
     </div>
   );
 }

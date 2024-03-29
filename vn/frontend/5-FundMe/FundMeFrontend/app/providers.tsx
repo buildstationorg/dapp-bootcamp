@@ -20,7 +20,7 @@ import { WagmiProvider, http } from 'wagmi';
 const { wallets } = getDefaultWallets();
 
 const config = getDefaultConfig({
-  appName: 'Klaytn Fund Me Frontend',
+  appName: 'DApp Bootcamp Frontends',
   projectId: "b735f0d8b8e242fb3e26f7c8dd1062b1",
   wallets: [
     ...wallets,

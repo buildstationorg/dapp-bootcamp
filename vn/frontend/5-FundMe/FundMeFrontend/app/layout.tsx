@@ -8,8 +8,8 @@ import { Toaster } from "@/components/ui/toaster"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Klaytn Bootcamp Fund Me Frontend",
-  description: "Interactive frontend for the Klaytn Bootcamp Fund Me project",
+  title: "Bootcamp Frontends",
+  description: "Interactive frontend for buildstation DApp bootcamp",
 };
 
 export default function RootLayout({

@@ -19,7 +19,7 @@ export default function MyFund() {
     refetch
   } = useReadContract({
     abi,
-    address: "0x1dB58359534600b08Fe7061608920f1C47E7b0b0",
+    address: "0x85bb6d27571C3175c81fe212c0decCA2202147b9",
     functionName: "getAddressToAmountFunded",
     args: [account.address ?? "0x0"],
     query: {
@@ -36,13 +36,13 @@ export default function MyFund() {
         </Button>
       </div>
       <p className="italic text-sm">
-        Total amount of KLAY that I have funded the contract
+        Total amount of Ether that I have funded the contract
       </p>
       {isPending && isFetched ? (
         <Skeleton className="w-[50px] h-[20px]" />
       ) : isSuccess ? (
         <p className="text-xl font-mono flex flex-row items-center">
-          {formatEther(amountFunded ?? BigInt(0))} KLAY
+          {formatEther(amountFunded ?? BigInt(0))} Ξ
         </p>
       ) : (
         <Badge className="w-fit" variant="secondary">
